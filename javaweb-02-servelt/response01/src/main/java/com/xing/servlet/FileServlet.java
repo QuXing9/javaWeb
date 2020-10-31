@@ -8,17 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 public class FileServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        □ 要获取下载文件的路径
-        String realPath = this.getServletContext().getRealPath("/1.png");
+        String realPath = "E:\\GithubProjects\\javaWeb\\javaweb-02-servelt\\response01\\target\\response01\\WEB-INF\\classes\\1.png";
         System.out.println("下载文件的路径:" + realPath);
 //        □ 下载名是啥
         String fileName = realPath.substring(realPath.lastIndexOf("\\") + 1);
 //        □ 设置想办法让浏览器能够支持(Content-disposition)下载我们需要的东西
-        resp.setHeader("Content-disposition", "attachment:filename="+fileName);
+        resp.setHeader("Content-disposition", "attachment;filename="+ URLEncoder.encode(fileName, "UTF-8"));
 //        □ 获取下载文件的输入流
         FileInputStream in = new FileInputStream(realPath);
 //        □ 创建缓冲区

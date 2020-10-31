@@ -12,6 +12,8 @@
         <module>servlet-01</module>
         <module>servelt-02</module>
         <module>response01</module>
+        <module>request01</module>
+        <module>javaweb-session-cookie</module>
     </modules>
 
     <dependencies>

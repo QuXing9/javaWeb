@@ -2,11 +2,14 @@
 <project version="4">
   <component name="ExternalStorageConfigurationManager" enabled="true" />
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/javaweb-session-cookie" />
     <file type="web" url="file://$PROJECT_DIR$/reponse" />
+    <file type="web" url="file://$PROJECT_DIR$/request01" />
     <file type="web" url="file://$PROJECT_DIR$/response" />
     <file type="web" url="file://$PROJECT_DIR$/response01" />
     <file type="web" url="file://$PROJECT_DIR$/servelt-02" />
     <file type="web" url="file://$PROJECT_DIR$/servlet-01" />
+    <file type="web" url="file://$PROJECT_DIR$/test" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -18,10 +21,11 @@
       <set>
         <option value="$PROJECT_DIR$/reponse/pom.xml" />
         <option value="$PROJECT_DIR$/response/pom.xml" />
+        <option value="$PROJECT_DIR$/test/pom.xml" />
       </set>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

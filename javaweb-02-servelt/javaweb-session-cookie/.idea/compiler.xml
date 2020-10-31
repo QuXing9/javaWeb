@@ -6,17 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="response01" />
-        <module name="servlet-01" />
-        <module name="servelt-02" />
-        <module name="request01" />
         <module name="javaweb-session-cookie" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="reponse" target="1.7" />
-      <module name="response" target="1.7" />
-      <module name="test" target="1.5" />
+      <module name="javaweb-session-cookie" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
