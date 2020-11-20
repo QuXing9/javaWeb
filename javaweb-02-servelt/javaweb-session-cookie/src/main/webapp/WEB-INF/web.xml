@@ -3,7 +3,34 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee
 	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-    
+
+    <servlet>
+        <servlet-name>SessionDemo03</servlet-name>
+        <servlet-class>com.xing.servlet.SessionDemo03</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionDemo03</servlet-name>
+        <url-pattern>/s3</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionDemo02</servlet-name>
+        <servlet-class>com.xing.servlet.SessionDemo02</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionDemo02</servlet-name>
+        <url-pattern>/s2</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>SessionDemo01</servlet-name>
+        <servlet-class>com.xing.servlet.SessionDemo01</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>SessionDemo01</servlet-name>
+        <url-pattern>/s1</url-pattern>
+    </servlet-mapping>
+
     <servlet>
         <servlet-name>CookieDemo01</servlet-name>
         <servlet-class>com.xing.servlet.CookieDemo01</servlet-class>
@@ -33,4 +60,12 @@
         <servlet-name>CookieDemo03</servlet-name>
         <url-pattern>/c3</url-pattern>
     </servlet-mapping>
+
+    <!--设置session默认的失效时间-->
+    <session-config>
+        <!--1分钟后session自动失效-->
+        <session-timeout>1</session-timeout>
+    </session-config>
+
+
 </web-app>
