@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class UserDaoimpl implements UserDao {
 
@@ -85,5 +86,46 @@ public class UserDaoimpl implements UserDao {
             BaseDao.closeResource(null, pstm, rs);
         }
         return count;
+    }
+
+    public List<User> getUserList(Connection connection, String userName, int userRole, int currentPageNo, int pageSize) throws Exception {
+        PreparedStatement pstm = null;
+        ResultSet rs = null;
+        List<User> userList = new ArrayList<User>();
+        if(connection != null){
+            StringBuffer sql = new StringBuffer();
+            sql.append("select u.*, r.roleName as userRoleName from user u,role r where u.userRole = r.id");
+            List<Object> list = new ArrayList<Object>();
+            if(!StringUtils.isNullOrEmpty(userName)){
+                sql.append(" and u.userName like ?");
+                list.add("%" + userName + "%");
+            }
+            if(userRole > 0){
+                sql.append(" and u.userRole = ?");
+                list.add(userRole);
+            }
+            sql.append(" order by creationDate DESC limit ?,?");
+            currentPageNo = (currentPageNo-1)*pageSize;
+            list.add(currentPageNo);
+            list.add(pageSize);
+
+            Object[] params = list.toArray();
+            System.out.println("sql ----> " + sql.toString());
+            rs = BaseDao.execute(connection, pstm, rs, sql.toString(), params);
+            while (rs.next()){
+                User _user = new User();
+                _user.setId(rs.getInt("id"));
+                _user.setUserCode(rs.getString("userCode"));
+                _user.setUserName(rs.getString("userName"));
+                _user.setGender(rs.getInt("gender"));
+                _user.setBirthday(rs.getDate("birthday"));
+                _user.setPhone(rs.getString("phone"));
+                _user.setUserRole(rs.getInt("userRole"));
+                _user.setUserRoleName(rs.getString("userRoleName"));
+                userList.add(_user);
+            }
+            BaseDao.closeResource(null, pstm, rs);
+        }
+        return userList;
     }
 }

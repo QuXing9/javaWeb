@@ -4,6 +4,7 @@ import com.xing.pojo.User;
 
 import java.sql.Connection;
 import java.sql.SQLException;
+import java.util.List;
 
 public interface UserDao {
     //得到要登陆的用户
@@ -14,4 +15,6 @@ public interface UserDao {
 
     // 查询用户总数
     public int getUserCount(Connection connection, String username, int userRole) throws SQLException;
+
+    public List<User> getUserList(Connection connection, String userName, int userRole, int currentPageNo, int pageSize) throws Exception;
 }

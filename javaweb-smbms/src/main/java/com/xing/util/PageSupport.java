@@ -23,10 +23,44 @@ public class PageSupport {
     //总页数
     private int PageNumber;
 
+    //当前页码
+    private int currentPageNo = 1;
+
+    //总数量(表)
+    private int totalCount = 0;
+
+    //总页数-totalCount/pageSize (+1)
+    private int totalPageCount = 1;
+
+    public int getTotalPageCount() {
+        return totalPageCount;
+    }
+
+    public void setTotalPageCount(int totalPageCount) {
+        this.totalPageCount = totalPageCount;
+    }
+
+    public int getTotalCount() {
+        return totalCount;
+    }
+
+    public void setTotalCount(int totalCount) {
+        this.totalCount = totalCount;
+    }
 
     //页码getter
     public int getCurrentPageCode() {
         return currentPageCode;
+    }
+
+    public int getCurrentPageNo() {
+        return currentPageNo;
+    }
+
+    public void setCurrentPageNo(int currentPageNo) {
+        if (currentPageNo > 0){
+            this.currentPageNo = currentPageNo;
+        }
     }
 
     //页码setter
