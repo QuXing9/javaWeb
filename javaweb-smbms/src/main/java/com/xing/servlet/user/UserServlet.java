@@ -130,7 +130,11 @@ public class UserServlet extends HttpServlet {
         }
 
         if(pageIndex != null){
-            currentPageNo = Integer.valueOf(pageIndex);
+            try {
+                currentPageNo = Integer.valueOf(pageIndex);
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+            }
         }
 
         //总数量
@@ -143,6 +147,8 @@ public class UserServlet extends HttpServlet {
         pages.setPageSize(pageSize);
 
         pages.setTotalCount(totalCount);
+
+        pages.setTotalPageCount((int)(totalCount/pageSize) + 1);
 
         int totalPageCount = pages.getTotalPageCount();
 

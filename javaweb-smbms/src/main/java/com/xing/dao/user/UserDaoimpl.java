@@ -2,6 +2,7 @@ package com.xing.dao.user;
 
 import com.mysql.cj.util.StringUtils;
 import com.xing.dao.BaseDao;
+import com.xing.pojo.Role;
 import com.xing.pojo.User;
 
 import java.sql.Connection;
@@ -127,5 +128,27 @@ public class UserDaoimpl implements UserDao {
             BaseDao.closeResource(null, pstm, rs);
         }
         return userList;
+    }
+
+    //获取角色列表
+    public List<Role> getRoleList(Connection connection) throws SQLException {
+        PreparedStatement pstm = null;
+        ResultSet resultSet = null;
+        ArrayList<Role> roleList = new ArrayList<Role>();
+        if (connection != null){
+            String sql = "select * from role";
+            Object[] params = {};
+            resultSet = BaseDao.execute(connection, pstm, resultSet, sql, params);
+
+            while (resultSet.next()){
+                Role _role = new Role();
+                _role.setId(resultSet.getInt("id"));
+                _role.setRoleCode(resultSet.getString("roleCode"));
+                _role.setRoleName(resultSet.getString("roleName"));
+                roleList.add(_role);
+            }
+            BaseDao.closeResource(null, pstm, resultSet);
+        }
+        return roleList;
     }
 }
