@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--    <bean id="user" class="com.xing.pojo.User" >-->
+<!--        <constructor-arg type="java.lang.String" value="模糊测试"/>-->
+<!--    </bean>-->
+
+    <bean id="user" class="com.xing.pojo.User" >
+        <constructor-arg name="name" value="模糊测试" />
+    </bean>
+    <!--别名：如果添加了别名，使用别名也可以取到对象-->
+    <alias name="user" alias="asdsad"></alias>
+
+    <bean id="userT" class="com.xing.pojo.UserT" name="userT2 u2">
+        <constructor-arg name="name" value="模糊测试2" />
+    </bean>
+</beans>
