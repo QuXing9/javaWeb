@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="spring-transaction" />
         <module name="spring-02-hellospring" />
         <module name="spring-04-di" />
         <module name="spring-10-mybatis" />
