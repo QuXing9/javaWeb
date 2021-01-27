@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Title</title>
+
+</head>
+<body>
+<div id="vue">
+    <p>currentTime1 {{currentTime1()}}</p>
+    <p>currentTime2 {{currentTime2}}</p>
+</div>
+<!--在线CDN-->
+<!--1.导入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<!--导入axios-->
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script type="text/javascript">
+    let vm = new Vue({
+        el: "#vue",
+        data:{
+            message: "hello,xingxing"
+        },
+        methods:{
+            currentTime1:function(){
+                return Date.now();
+            }
+        },
+        computed:{
+            currentTime2:function (){
+                this.message;
+                return Date.now();
+            }
+        }
+    });
+</script>
+</body>
+</html>

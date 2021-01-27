@@ -14,6 +14,8 @@
         <module>springmvc-03-annotation</module>
         <module>spring-04-controller</module>
         <module>springmvc-06-ajax</module>
+        <module>springmvc-07-intercepter</module>
+        <module>springmvc-08-file</module>
     </modules>
 
     <!--导入依赖-->

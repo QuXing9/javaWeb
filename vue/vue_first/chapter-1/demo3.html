@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+    <li v-for="item in items">
+        {{item.message}}
+    </li>
+</div>
+
+<!--导入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data:{
+            items:[
+                {message: "狂神说java"},
+                {message: "狂神说前端"},
+                {message: "狂神运维"}
+            ]
+        }
+    });
+
+</script>
+</body>
+</html>

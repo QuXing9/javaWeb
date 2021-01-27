@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+
+<div id="app">
+    <button v-on:click="sayHi">click me</button>
+</div>
+
+<!--导入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data:{
+            message:"狂神说java"
+        },
+        methods:{
+            //方法必须定义在vue的method对象中
+            sayHi:function (event){
+                alert(this.message)
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

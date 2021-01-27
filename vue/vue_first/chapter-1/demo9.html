@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Title</title>
+
+</head>
+<body>
+<div id="app">
+    <todo>
+        <todo-title slot="todo-title" :title="title"></todo-title>
+        <todo-items :item="item" index slot="todo-items" v-bind:index="index"
+                    v-for="(item, index) in todoItems" v-on:remove="removeItems(index)" :key="index"></todo-items>
+    </todo>
+</div>
+<!--在线CDN-->
+<!--1.导入vue.js-->
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.21/dist/vue.min.js"></script>
+<!--导入axios-->
+<script src="https://cdn.bootcdn.net/ajax/libs/axios/0.21.1/axios.min.js"></script>
+<script type="text/javascript">
+    Vue.component("todo",{
+        template:
+            '<div>' +
+                '<slot name="todo-title"></slot>' +
+                '<ul>' +
+                    '<slot name="todo-items"></slot>' +
+                '</ul>' +
+            '</div>'
+    });
+
+    Vue.component("todo-title",{
+        props:['title'],
+        template: '<div>{{title}}</div>'
+    })
+    Vue.component("todo-items",{
+        props: ['item', 'index'],
+        template:'<li>{{index}}---{{item}} <button @click="remove">删除</button> </li>',
+        methods:{
+            remove:function (index){
+                this.$emit('remove',index);
+            }
+        }
+    });
+    let vm = new Vue({
+        el: "#app",
+        data:{
+            title:"秦老师系列课程",
+            todoItems:['狂神说Java', "狂神说前端", "狂神说Linux"]
+        },
+        methods:{
+            removeItems:function (index) {
+                console.log("删除了"+this.todoItems[index]+"OK");
+                this.todoItems.splice(index,1);
+            }
+        }
+    });
+</script>
+</body>
+</html>
